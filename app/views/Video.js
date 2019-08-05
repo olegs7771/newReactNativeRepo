@@ -32,7 +32,6 @@ export class Video extends Component {
   }
 
   render() {
-    console.log("this.state", this.state);
     const { listLoaded, videoList } = this.state;
 
     return (
