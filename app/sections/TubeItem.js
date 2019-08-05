@@ -10,7 +10,7 @@ export default class TubeItem extends Component {
       <TouchableHighlight onPress={this.onPress}>
         <View style={{ paddingTop: 20, alignItems: "center" }}>
           <Image
-            style={{ width: "100%", height: 200 }}
+            style={{ width: "100%", height: 100 }}
             source={{ uri: imageSrc }}
           />
         </View>
