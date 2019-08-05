@@ -13,15 +13,18 @@ class Menu extends Component {
       <View style={styles.container}>
         <View style={styles.buttonRow}>
           <TouchableOpacity style={styles.buttonStyles} onPress={this.onPress}>
-            <Text style={styles.buttonText}> Lessons </Text>
+            <Text style={styles.buttonText}> Lessons1 </Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.buttonStyles} onPress={this.onPress}>
-            <Text style={styles.buttonText}> Register </Text>
+            <Text style={styles.buttonText}> Register12 </Text>
           </TouchableOpacity>
         </View>
         <View style={styles.buttonRow}>
-          <TouchableOpacity style={styles.buttonStyles} onPress={this.onPress}>
-            <Text style={styles.buttonText}> Blog </Text>
+          <TouchableOpacity
+            style={styles.buttonStyles}
+            onPress={() => navigate("LessonsRT")}
+          >
+            <Text style={styles.buttonText}> Lessons </Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttonStyles}

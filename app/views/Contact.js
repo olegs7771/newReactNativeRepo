@@ -31,15 +31,19 @@ export default class Contact extends Component {
   };
   render() {
     const { name, msg, email } = this.state;
-
     return (
       <View style={styles.container}>
         <Header message="Press to Login" />
         <Text style={styles.heading}> Contact us</Text>
         <TextInput
-          style={styles.inputs}
+          style={styles.input}
           onChangeText={text => this.setState({ name: text })}
           value={name}
+        />
+        <TextInput
+          style={styles.input}
+          onChangeText={text => this.setState({ email: text })}
+          value={email}
         />
         <TextInput
           style={styles.multiInput}
@@ -48,16 +52,11 @@ export default class Contact extends Component {
           multiline={true}
           numberOfLines={4}
         />
-        <TextInput
-          style={styles.inputs}
-          onChangeText={text => this.setState({ email: text })}
-          value={email}
-        />
         <TouchableHighlight onPress={this.sendMessage} underlayColor="#31e981">
           <Text style={styles.buttons}>Send Message</Text>
         </TouchableHighlight>
         <TouchableHighlight onPress={this.clearFields} underlayColor="#31e981">
-          <Text style={styles.buttons}>Clear Fields</Text>
+          <Text style={styles.buttons}>Clear Form</Text>
         </TouchableHighlight>
       </View>
     );
@@ -67,29 +66,28 @@ export default class Contact extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    paddingBottom: "50%"
+    paddingBottom: "50%",
+    alignItems: "center"
   },
   heading: {
-    flex: 1,
-    fontSize: 16
+    fontSize: 20,
+
+    flex: 1
   },
-  inputs: {
-    flex: 1,
-    width: "80%",
+  input: {
+    fontSize: 16,
     padding: 5,
-    borderBottomWidth: 1,
-    borderColor: "gray"
+    width: "60%",
+    flex: 1,
+    borderBottomWidth: 1
   },
   multiInput: {
-    flex: 2,
-    width: "80%",
-    paddingTop: 5,
-    borderBottomWidth: 1,
-    borderColor: "gray"
+    width: "60%",
+    fontSize: 16,
+    padding: 5,
+    flex: 1
   },
   buttons: {
-    marginTop: 15,
-    fontSize: 16
+    padding: 5
   }
 });
