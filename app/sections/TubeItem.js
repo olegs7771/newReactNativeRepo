@@ -4,6 +4,7 @@ import { Text, View, Image, TouchableHighlight } from "react-native";
 export default class TubeItem extends Component {
   onPress = () => {
     console.log("id", this.props.id);
+    this.props.navigate("VideoDetailRT", { videoID: this.props.id });
   };
   render() {
     console.log("this.props", this.props);

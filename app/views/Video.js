@@ -32,10 +32,10 @@ export class Video extends Component {
   }
 
   render() {
+    console.log("this.props.navigation", this.props.navigation);
+    const { navigate } = this.props.navigation;
+
     const { listLoaded, videoList } = this.state;
-    if (videoList) {
-      console.log("this.state.videoList", this.state.videoList);
-    }
 
     return (
       <View>
@@ -46,6 +46,7 @@ export class Video extends Component {
               keyExtractor={item => item.id.videoId}
               renderItem={({ item }) => (
                 <TubeItem
+                  navigate={navigate}
                   id={item.id.videoId}
                   title={item.snippet.title}
                   imageSrc={item.snippet.thumbnails.high.url}
