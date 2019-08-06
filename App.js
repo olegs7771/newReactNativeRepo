@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Home from "./app/views/Home";
 import Contact from "./app/views/Contact";
 import Video from "./app/views/Video";
+import VideoDetail from "./app/views/VideoDetail";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
 const AppNavigator = createStackNavigator(
@@ -14,6 +15,9 @@ const AppNavigator = createStackNavigator(
     },
     LessonsRT: {
       screen: Video
+    },
+    VideoDetailRT: {
+      screen: VideoDetail
     }
   },
   {
@@ -28,3 +32,4 @@ class App extends Component {
   }
 }
 export default App;
+//test
