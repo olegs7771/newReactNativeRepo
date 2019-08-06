@@ -7,8 +7,6 @@ export default class TubeItem extends Component {
     this.props.navigate("VideoDetailRT", { videoID: this.props.id });
   };
   render() {
-    console.log("this.props", this.props);
-
     const { id, imageSrc, title } = this.props;
 
     return (

@@ -20,7 +20,6 @@ export class Video extends Component {
     )
       .then(response => response.json())
       .then(responseJson => {
-        console.log("responseJson", Array.from(responseJson.items));
         this.setState({
           listLoaded: true,
           videoList: Array.from(responseJson.items)
@@ -32,7 +31,6 @@ export class Video extends Component {
   }
 
   render() {
-    console.log("this.props.navigation", this.props.navigation);
     const { navigate } = this.props.navigation;
 
     const { listLoaded, videoList } = this.state;
