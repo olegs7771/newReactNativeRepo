@@ -1,12 +1,13 @@
 import React, { Component } from "react";
+import Header from "../sections/Header";
+import RegisterForm from "../sections/RegisterForm";
 import {
   Text,
   View,
   StyleSheet,
   TextInput,
   TouchableHighlight,
-  Alert,
-  AsyncStorage
+  Alert
 } from "react-native";
 
 class Register extends Component {
@@ -16,15 +17,32 @@ class Register extends Component {
 
   state = {
     username: "",
-    password: "",
-    paswordConfirmed: ""
+    password1: "",
+    password2: ""
   };
   render() {
+    const { username, password1, password2 } = this.state;
     return (
-      <View>
-        <Text> textInComponent </Text>
+      <View style={styles.container}>
+        <Header message="Press To Login" />
+        <Text style={styles.title}>Register</Text>
+        <RegisterForm />
       </View>
     );
   }
 }
 export default Register;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingBottom: "45%"
+  },
+
+  title: {
+    flex: 1,
+    textAlign: "center",
+    fontSize: 20,
+    paddingVertical: 5
+  }
+});

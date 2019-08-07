@@ -15,8 +15,11 @@ class Menu extends Component {
           <TouchableOpacity style={styles.buttonStyles} onPress={this.onPress}>
             <Text style={styles.buttonText}> Lessons1 </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonStyles} onPress={this.onPress}>
-            <Text style={styles.buttonText}> Register12 </Text>
+          <TouchableOpacity
+            style={styles.buttonStyles}
+            onPress={() => navigate("RegisterRT")}
+          >
+            <Text style={styles.buttonText}> Register </Text>
           </TouchableOpacity>
         </View>
         <View style={styles.buttonRow}>
