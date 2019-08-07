@@ -16,7 +16,7 @@ export class Video extends Component {
 
   componentDidMount() {
     return fetch(
-      "https://www.googleapis.com/youtube/v3/search?part=snippet&q=pluralsight&type=video&key=AIzaSyBgcr3wy6zEl-3E2WtYjxyKol5yuPbxDS4"
+      "https://www.googleapis.com/youtube/v3/search?part=snippet&q=olegs77&type=video&key=AIzaSyBgcr3wy6zEl-3E2WtYjxyKol5yuPbxDS4"
     )
       .then(response => response.json())
       .then(responseJson => {

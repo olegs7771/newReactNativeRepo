@@ -16,6 +16,7 @@ export default class TubeItem extends Component {
             style={{ width: "100%", height: 200 }}
             source={{ uri: imageSrc }}
           />
+
           <Text>{title}</Text>
         </View>
       </TouchableHighlight>
