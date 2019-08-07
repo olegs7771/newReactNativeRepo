@@ -24,6 +24,8 @@ class RegisterForm extends Component {
     const { username, password1, password2 } = this.state;
     if (!username) {
       return Alert.alert("No Username");
+    } else if (passport1 !== passport2) {
+      return Alert.alert("passwords not match");
     }
     Alert.alert("Register");
   };
