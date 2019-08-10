@@ -16,18 +16,40 @@ class RegisterForm extends Component {
     password2: ""
   };
 
-  clearUsername = () => {
-    console.log("cleared");
+  clearStore = () => {
+    AsyncStorage.clear().then(() => {
+      console.log("AsyncStorage Cleared");
+    });
   };
 
   onPressRegister = () => {
     const { username, password1, password2 } = this.state;
     if (!username) {
       return Alert.alert("No Username");
-    } else if (passport1 !== passport2) {
-      return Alert.alert("passwords not match");
+    } else if (!password1) {
+      return Alert.alert("need passport");
+    } else {
+      if (password1 !== password2) {
+        return Alert.alert("passport not match");
+      }
     }
-    Alert.alert("Register");
+
+    AsyncStorage.getItem(username, (err, result) => {
+      if (result !== null) {
+        Alert.alert("user exists");
+      } else {
+        Alert.alert(`${username} account created`);
+        setTimeout(() => {
+          AsyncStorage.setItem(username, password1).then(() => {
+            this.props.navigation.navigate("HomeRT");
+          });
+        }, 5000);
+      }
+    });
+  };
+  displayUser = async () => {
+    let user = await AsyncStorage.getItem("username");
+    console.log("user", user);
   };
 
   render() {
@@ -66,6 +88,20 @@ class RegisterForm extends Component {
           underlayColor="#edbbca"
         >
           <Text>Send</Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          style={styles.buttons}
+          onPress={this.clearStore}
+          underlayColor="#edbbca"
+        >
+          <Text>Clear Store</Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          style={styles.buttons}
+          onPress={this.displayUser}
+          underlayColor="#edbbca"
+        >
+          <Text>Display User</Text>
         </TouchableHighlight>
       </View>
     );
