@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+
 import Home from "./app/views/Home";
 import Contact from "./app/views/Contact";
 import Video from "./app/views/Video";
 import VideoDetail from "./app/views/VideoDetail";
 import Register from "./app/views/Register";
+import Login from "./app/views/Login";
+
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
 const AppNavigator = createStackNavigator(
@@ -11,6 +14,7 @@ const AppNavigator = createStackNavigator(
     HomeRT: {
       screen: Home
     },
+
     ContactRT: {
       screen: Contact
     },
@@ -22,6 +26,9 @@ const AppNavigator = createStackNavigator(
     },
     RegisterRT: {
       screen: Register
+    },
+    LoginRT: {
+      screen: Login
     }
   },
   {

@@ -1,25 +1,77 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, View, Image } from "react-native";
+import {
+  Text,
+  StyleSheet,
+  View,
+  Image,
+  TouchableHighlight,
+  AsyncStorage,
+  Alert
+} from "react-native";
 
 export class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: false
+      isLoggedIn: false,
+      loggedUser: false
     };
   }
 
   toggleUser = () => {
-    this.setState(previousState => {
-      return { isLoggedIn: !previousState.isLoggedIn };
-    });
+    if (this.state.isLoggedIn) {
+      AsyncStorage.setItem("userLoggedIn", "none", (err, rusult) => {
+        this.setState({
+          isLoggedIn: false,
+          loggedUser: false
+        });
+        Alert.alert("User Logged out");
+      });
+    } else {
+      this.props.navigation.navigate("LoginRT");
+    }
   };
+
+  componentDidMount() {
+    console.log("header mounted");
+
+    AsyncStorage.getItem("userLoggedIn", (err, result) => {
+      if (result === "none") {
+        console.log("NONE");
+      } else if (result === null) {
+        AsyncStorage.setItem("userLoggedIn", "none", (err, result) => {
+          console.log("Set user to NONE");
+        });
+      } else {
+        this.setState({
+          isLoggedIn: true,
+          loggedUser: result
+        });
+      }
+    });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      prevProps.navigation.state.params !== this.props.navigation.state.params
+    ) {
+      console.log("new params", this.props.navigation.state.params);
+      this.setState({
+        isLoggedIn: true,
+        loggedUser: this.props.navigation.state.params.name
+      });
+    }
+  }
+
   render() {
-    let display = this.state.isLoggedIn ? "Sample User" : this.props.message;
+    let display = this.state.isLoggedIn
+      ? this.state.loggedUser
+      : this.props.message;
 
     return (
       <View style={styles.headStyle}>
         {/* {Adding image for logo} */}
+
         <Image
           style={styles.logoStyle}
           source={require("./img/Untitled-1.png")}

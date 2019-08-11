@@ -33,7 +33,7 @@ export default class Contact extends Component {
     const { name, msg, email } = this.state;
     return (
       <View style={styles.container}>
-        <Header message="Press to Login" />
+        <Header message="Press to Login" navigation={this.props.navigation} />
         <Text style={styles.heading}> Contact us</Text>
         <TextInput
           style={styles.input}

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, AsyncStorage } from "react-native";
 import Header from "../sections/Header";
 import Main from "../sections/Main";
 import Menu from "../sections/Menu";
@@ -10,12 +10,18 @@ export class Home extends Component {
     header: null
   };
 
+  componentDidMount() {
+    AsyncStorage.getItem("userLoggedIn").then(result => {
+      console.log("result", result);
+    });
+  }
+
   render() {
     const { navigate } = this.props.navigation;
 
     return (
       <View style={styles.container}>
-        <Header message="Press to login" />
+        <Header navigation={this.props.navigation} message="press login" />
         <Main />
         <Menu navigate={navigate} />
       </View>

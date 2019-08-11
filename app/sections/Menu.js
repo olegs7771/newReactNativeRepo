@@ -6,14 +6,16 @@ class Menu extends Component {
     Alert.alert("You tapped the button!");
   };
   render() {
-    // console.log("this.props", this.props);
     const { navigate } = this.props;
 
     return (
       <View style={styles.container}>
         <View style={styles.buttonRow}>
-          <TouchableOpacity style={styles.buttonStyles} onPress={this.onPress}>
-            <Text style={styles.buttonText}> Lessons1 </Text>
+          <TouchableOpacity
+            style={styles.buttonStyles}
+            onPress={() => navigate("LoginRT")}
+          >
+            <Text style={styles.buttonText}> Login1 </Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttonStyles}

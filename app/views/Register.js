@@ -24,9 +24,9 @@ class Register extends Component {
     const { username, password1, password2 } = this.state;
     return (
       <View style={styles.container}>
-        <Header message="Press To Login" />
+        <Header message="Press To Login" navigation={this.props.navigation} />
         <Text style={styles.title}>Register</Text>
-        <RegisterForm />
+        <RegisterForm navigation={this.props.navigation} />
       </View>
     );
   }
