@@ -16,8 +16,6 @@ class Login extends Component {
   };
 
   render() {
-    console.log("login");
-
     return (
       <View style={styles.container}>
         <Header />

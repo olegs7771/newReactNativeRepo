@@ -33,8 +33,6 @@ export class Header extends Component {
   };
 
   componentDidMount() {
-    console.log("header mounted");
-
     AsyncStorage.getItem("userLoggedIn", (err, result) => {
       if (result === "none") {
         console.log("NONE");

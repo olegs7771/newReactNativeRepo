@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Text, View, StyleSheet, TouchableHighlight } from "react-native";
 
-export class Questions extends Component {
+export default class Questions extends Component {
   static navigationOptions = {
     header: null
   };
@@ -12,6 +12,8 @@ export class Questions extends Component {
   };
 
   chooseAnswer = ans => {
+    console.log("ans", ans);
+
     let worth = 25;
     //quastion answered correctly
     if (ans === this.props.correctAnswer) {
@@ -28,58 +30,61 @@ export class Questions extends Component {
       this.props.scoreUpdate(worth);
     }
   };
+
+  test = () => {
+    console.log("testing works");
+  };
   render() {
-    const { selected, correct } = this.state;
-    const { question, answer1, answer2, answer3, answer4 } = this.props;
     return (
       //conditional render
       <View style={styles.container}>
-        {!selected && (
+        {!this.state.selected && (
           <View style={styles.container}>
-            <Text style={styles.questionText}>{question}</Text>
+            <Text style={styles.questionText}>{this.props.question}</Text>
             <TouchableHighlight
               underlayColor="#d3d3d3"
-              onPress={this.chooseAnswer("answer1")}
+              onPress={() => this.chooseAnswer("answer1")}
             >
-              <Text style={styles.answerText}>{answer1}</Text>
+              <Text style={styles.answerText}>{this.props.answer1}</Text>
+            </TouchableHighlight>
+
+            <TouchableHighlight
+              underlayColor="#d3d3d3"
+              onPress={() => this.chooseAnswer("answer2")}
+            >
+              <Text style={styles.answerText}>{this.props.answer2}</Text>
             </TouchableHighlight>
             <TouchableHighlight
               underlayColor="#d3d3d3"
-              onPress={this.chooseAnswer("answer2")}
+              onPress={() => this.chooseAnswer("answer3")}
             >
-              <Text style={styles.answerText}>{answer2}</Text>
+              <Text style={styles.answerText}>{this.props.answer3}</Text>
             </TouchableHighlight>
             <TouchableHighlight
               underlayColor="#d3d3d3"
-              onPress={this.chooseAnswer("answer3")}
+              onPress={() => this.chooseAnswer("answer4")}
             >
-              <Text style={styles.answerText}>{answer3}</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              underlayColor="#d3d3d3"
-              onPress={this.chooseAnswer("answer4")}
-            >
-              <Text style={styles.answerText}>{answer4}</Text>
+              <Text style={styles.answerText}>{this.props.answer4}</Text>
             </TouchableHighlight>
           </View>
         )}
-        {selected && correct && (
+        {this.state.selected && this.state.correct && (
           <View style={styles.correctContainer}>
-            <Text style={styles.questionText}>{question}</Text>
-            <Text style={styles.answerText}>{answer1}</Text>
-            <Text style={styles.answerText}>{answer2}</Text>
-            <Text style={styles.answerText}>{answer3}</Text>
-            <Text style={styles.answerText}>{answer4}</Text>
+            <Text style={styles.questionText}>{this.props.question}</Text>
+            <Text style={styles.answerText}>{this.props.answer1}</Text>
+            <Text style={styles.answerText}>{this.props.answer2}</Text>
+            <Text style={styles.answerText}>{this.props.answer3}</Text>
+            <Text style={styles.answerText}>{this.props.answer4}</Text>
             <Text style={styles.answerText}>CORRECT</Text>
           </View>
         )}
-        {selected && !correct && (
+        {this.state.selected && !this.state.correct && (
           <View style={styles.wrongContainer}>
-            <Text style={styles.questionText}>{question}</Text>
-            <Text style={styles.answerText}>{answer1}</Text>
-            <Text style={styles.answerText}>{answer2}</Text>
-            <Text style={styles.answerText}>{answer3}</Text>
-            <Text style={styles.answerText}>{answer4}</Text>
+            <Text style={styles.questionText}>{this.props.question}</Text>
+            <Text style={styles.answerText}>{this.props.answer1}</Text>
+            <Text style={styles.answerText}>{this.props.answer2}</Text>
+            <Text style={styles.answerText}>{this.props.answer3}</Text>
+            <Text style={styles.answerText}>{this.props.answer4}</Text>
             <Text style={styles.answerText}>INCORRECT</Text>
           </View>
         )}
@@ -87,8 +92,6 @@ export class Questions extends Component {
     );
   }
 }
-
-export default Questions;
 
 const styles = StyleSheet.create({
   container: {
