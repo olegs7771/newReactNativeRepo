@@ -8,6 +8,7 @@ import Register from "./app/views/Register";
 import Login from "./app/views/Login";
 import Quiz from "./app/views/Quiz";
 import QuizFinish from "./app/views/QuizFinish";
+import Blog from "./app/views/Blog";
 
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
@@ -37,6 +38,9 @@ const AppNavigator = createStackNavigator(
     },
     QuizRT: {
       screen: Quiz
+    },
+    BlogRT: {
+      screen: Blog
     }
   },
   {
