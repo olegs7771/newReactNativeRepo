@@ -33,6 +33,8 @@ export default class Blog extends Component {
   };
 
   render() {
+    console.log("blogList", this.state.blogList);
+
     return (
       <View>
         {this.state.blogLoaded && (
