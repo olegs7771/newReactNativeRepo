@@ -32,6 +32,8 @@ export default class Quiz extends Component {
     });
   }
   updateScore = penalty => {
+    console.log("penalty", penalty);
+
     let tempScore = this.state.totalScore;
     let missed = this.state.incorrect;
     let questionsTotal = this.state.numberOfQuestions;
@@ -52,6 +54,7 @@ export default class Quiz extends Component {
       });
     }
   };
+
   finishQuiz = () => {
     console.log("finished");
 
