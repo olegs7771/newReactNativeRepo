@@ -53,8 +53,6 @@ export default class Quiz extends Component {
     }
   };
   finishQuiz = () => {
-    console.log("finished");
-
     this.props.navigation.navigate("FinishRT", {
       score: this.state.totalScore,
       missed: this.state.incorrect,
