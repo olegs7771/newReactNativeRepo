@@ -30,6 +30,7 @@ export default class Blog extends Component {
   }
   chooseBlog = blogID => {
     console.log("Blog ID chosen :" + blogID);
+    this.props.navigation.navigate("BlogDetailRT", { blogId: blogID });
   };
 
   render() {

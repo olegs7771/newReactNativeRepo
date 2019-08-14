@@ -9,6 +9,7 @@ import Login from "./app/views/Login";
 import Quiz from "./app/views/Quiz";
 import QuizFinish from "./app/views/QuizFinish";
 import Blog from "./app/views/Blog";
+import BlogDetail from "./app/views/BlogDetail";
 
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
@@ -41,6 +42,9 @@ const AppNavigator = createStackNavigator(
     },
     BlogRT: {
       screen: Blog
+    },
+    BlogDetailRT: {
+      screen: BlogDetail
     }
   },
   {
